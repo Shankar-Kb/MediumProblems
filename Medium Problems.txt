@@ -1,0 +1,116 @@
+//1. Declare four variables without assigning values and print them in console
+
+var a; var b; var c; var d;
+console.log(a,b,c,d);
+
+//2. How to get value of the variable myvar as output
+
+var myvar= 1;
+console.log(myvar);
+
+//3. Declare variables to store your first name, last name, marital status, country and age in multiple lines
+
+var firstName = "Bhavani";
+var lastName = "Shankar";
+var maritalStatus = "Single";
+var country = "india";
+var age = 25;
+
+//4. Declare variables to store your first name, last name, marital status, country and age in a single line
+
+var firstName = "Bhavani"; var lastName = "Shankar"; var maritalStatus = "Single"; var country = "india"; var age = 25;
+
+//5. Declare variables and assign string, boolean, undefined and null data types
+
+var num = 5; //integer
+var tof = true; //boolean
+var str = "Hello"; //string
+var ok = null; //null
+var x; //Undefined
+
+
+//6. Write a code to print the numbers in the array
+
+var numsArr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+var new_string = "";
+ 
+for (var i = 0; i < numsArr.length ; i++){
+ new_string += numsArr[i] 
+}
+console.log(new_string);
+
+//7. Write a code to print from last to first with spaces (Make sure there is no space after the last element…
+
+var numsArr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+var new_string = "";
+ 
+for (var i = numsArr.length-1; i > -1; i--) {
+ new_string += numsArr[i];
+}
+console.log(new_string.split('').join(' '));
+
+//8. Find the culprit
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script>
+ alert( “I’m JavaScript!");
+ </script>
+ //Whats the error in this ?
+</body>
+</html>
+
+//9. Find the culprit and invoke the alert
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”scripts.js”></script>
+</body>
+</html>
+
+scripts.js
+alert("I’m invoked!");
+
+//10. Part 3: Find the culprits and nail them — debugging javascript
+//Fix the code to get the largest of three.
+
+var aa = function (f,s,t){
+ //let f,s,t; <- Unnecessary redeclaration
+ console.log(f,s,t);
+ if(f>s &&f>t){
+ console.log(f)}
+ else if(s>f && s>t){
+ console.log(s)}
+ else{
+ console.log(t)}
+}
+aa(1,2,3);
+
+//11. Fix the code to Sum of the digits present in the number
+
+let n = 123;
+console.log(add(n));
+function add(n)
+{
+let sum = 10;
+for(var i=0;i<n.length;i++){
+ sum+=n[i]
+ }
+ return sum;
+}
+
+//Solution
+
+function add(n){
+let arr = Array.from(String(n), Number);    //String(n) converts it to a string & Array.from will create an array with the converted 'n' as its parameter and will perform the Number function on each of the elements in the array.
+let sum = 0; //Sum must start at 0
+for(var i=0;i<arr.length;i++){
+ sum += arr[i];
+ }
+ return sum;
+}
+console.log(add(123));
