@@ -1,0 +1,28 @@
+HTTP/1.1:
+
+1. HTTP/1.1 is developed by Timothy Berners-Lee as a communication standard for the World Wide Web. HTTP is a application protocol that exchanges information between a client computer and a local or remote web server. In this process, a client sends a text-based request to a server by calling methods like GET or POST. In response, the server sends a resource like an HTML page back to the client.
+
+2. HTTP/1.1 keeps all requests and responses in plain text format.
+
+3. HTTP/1.1, multiple data packets cannot pass each other when traveling to the same destination this is known as head-of-line(HOL) blocking, and is a significant problem with optimizing connection efficiency in HTTP/1.1.
+
+4. HTTP/1.1, cannot use parallel data streams to alleviate head-of-line(HOL) blocking because that would require more resources and processing power.
+
+5. In HTTP/1.1, flow control relies on the underlying TCP connection. When this connection initiates, both client and server establish their buffer sizes using their system default settings. If the receiver’s buffer is partially filled with data, it will tell the sender its receive window, i.e., the amount of available space that remains in its buffer. This receive window is advertised in a signal known as an ACK packet, which is the data packet that the receiver sends to acknowledge that it received the opening signal.
+
+6. In HTTP/1.1, if the developer knows in advance which additional resources the client machine will need to render the page, they can use a technique called resource inlining to include the required resource directly within the HTML document that the server sends in response to the initial GET request.
+
+
+HTTP/2:
+
+1.HTTP/2 began as the SPDY protocol, developed primarily at Google with the intention of reducing web page load latency by using techniques such as compression, multiplexing, and prioritization. This protocol served as a template for HTTP/2 when the Hypertext Transfer Protocol working group httpbis of the IETF (Internet Engineering Task Force) put the standard together, culminating in the publication of HTTP/2 in May 2015.
+
+2. HTTP/2 uses the binary framing layer to encapsulate all messages in binary format, while still maintaining HTTP semantics, such as verbs, methods, and headers.
+
+3. In HTTP/2, the binary framing layer encodes requests/responses and cuts them up into smaller packets of information, greatly increasing the flexibility of data transfer. Also effectively taking care of head-of-line(HOL) blocking.
+
+4. HTTP/2 uses multiplexing which allows the client to construct multiple streams in parallel, these streams only need to make use of a single TCP connection. Having a single persistent connection per origin improves upon HTTP/1.1 by reducing the memory and processing footprint throughout the network.
+
+5. HTTP/2 multiplexes streams of data within a single TCP connection. As a result, receive windows on the level of the TCP connection are not sufficient to regulate the delivery of individual streams. HTTP/2 solves this problem by allowing the client and server to implement their own flow controls, rather than relying on the transport layer. The application layer communicates the available buffer space, allowing the client and server to set the receive window on the level of the multiplexed streams.
+
+6. Since HTTP/2 enables multiple concurrent responses to a client’s initial GET request, a server can send a resource to a client along with the requested HTML page, providing the resource before the client asks for it. This process is called server push.
